@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vrgsoft_test_yevstropov_vsevolod.repozitory.Repozitory
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerList:RecyclerView
+    lateinit var adapter: Adapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

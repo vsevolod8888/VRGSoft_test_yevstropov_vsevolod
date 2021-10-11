@@ -62,4 +62,7 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.34.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
     kapt 'com.google.dagger:dagger-compiler:2.34.1'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 }

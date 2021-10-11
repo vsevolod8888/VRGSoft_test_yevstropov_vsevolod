@@ -2,7 +2,6 @@ package com.example.vrgsoft_test_yevstropov_vsevolod
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.vrgsoft_test_yevstropov_vsevolod.repozitory.Repozitory
 
 class MainViewModelFactory (
     private val repozitory: Repozitory
