@@ -1,5 +1,4 @@
 package com.example.vrgsoft_test_yevstropov_vsevolod.api
-
 import com.example.vrgsoft_test_yevstropov_vsevolod.dto.RedditApiDto
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,7 +6,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 private val logging = HttpLoggingInterceptor().apply { setLevel(HttpLoggingInterceptor.Level.BODY) }
 private val httpClientBuilder = OkHttpClient.Builder().apply { addInterceptor(logging) }
@@ -24,7 +22,7 @@ var retrofit = Retrofit.Builder()
 interface RedditApiService {
 
     @GET("/top.json") //
-    suspend fun getProperties2(): Response<RedditApiDto>
+    suspend fun getListRedditApiDto(): Response<RedditApiDto>
 
 }
 

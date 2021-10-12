@@ -23,6 +23,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:setImage="@{redditDomain}"
             />
 
         <TextView
@@ -35,7 +36,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Имя автора" />
+            tools:text="Имя автора"
+            android:background="@color/purple_200"
+            app:authorName="@{redditDomain}"/>
 
         <TextView
             android:id="@+id/tv_date"
@@ -47,6 +50,8 @@
             app:layout_constraintStart_toStartOf="@+id/tv_author_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_author_name"
             tools:text="Дата добавления"
+            android:background="@color/purple_200"
+            app:howMuchTimePassed="@{redditDomain}"
             />
 
         <TextView
@@ -59,6 +64,8 @@
             app:layout_constraintStart_toStartOf="@+id/tv_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_date"
             tools:text="К-во комментариев"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:background="@color/purple_200"
+            app:howMuchComments="@{redditDomain}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
