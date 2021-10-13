@@ -1,4 +1,4 @@
-package com.example.uklontestzadanie.dagger
+package com.example.vrgsoft_test_yevstropov_vsevolod.dagger
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

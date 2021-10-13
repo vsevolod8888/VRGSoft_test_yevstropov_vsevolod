@@ -1,4 +1,4 @@
-package com.example.uklontestzadanie.dagger
+package com.example.vrgsoft_test_yevstropov_vsevolod.dagger
 import com.example.vrgsoft_test_yevstropov_vsevolod.FragmentPicture
 import com.example.vrgsoft_test_yevstropov_vsevolod.MainFragment
 import dagger.Component

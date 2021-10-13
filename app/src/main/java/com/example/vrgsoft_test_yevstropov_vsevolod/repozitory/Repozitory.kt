@@ -8,14 +8,14 @@ import com.example.vrgsoft_test_yevstropov_vsevolod.dto.asDomainModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import javax.inject.Inject
 
-class Repozitory (){
+class Repozitory @Inject constructor(val ourApiService:RedditApiService){
     var listRedditdomainREP: MutableLiveData<List<RedditDomain>> = MutableLiveData()
-
 
     suspend fun refreshDataFromInternet(){
         withContext(Dispatchers.IO) {
-            val ourApiService: RedditApiService = retrofit.create(RedditApiService::class.java)
+
             val requestCall = try {
                 ourApiService.getListRedditApiDto()
             } catch (e: Exception) {
