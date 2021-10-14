@@ -9,10 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vrgsoft_test_yevstropov_vsevolod.dagger.App
 import com.example.vrgsoft_test_yevstropov_vsevolod.domain.RedditDomain
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.lastOrNull
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainFragment:Fragment(), RouteArchiveListener {
@@ -39,15 +43,31 @@ class MainFragment:Fragment(), RouteArchiveListener {
         adapter = Adapter(this)
         recyclerList.adapter = adapter
 
-        mainViewModel.listRedditDomainVM.observe(
-            viewLifecycleOwner, Observer {
-                adapter.submitList(it)//
-            }
-        )
+//        mainViewModel.listRedditDomainVM.observe(
+//            viewLifecycleOwner, Observer {
+//                adapter.submitList(it)//
+//            }
+//        )
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            mainViewModel.flow.collectLatest { adapter.submitData(it) }
+        }
     }
     override fun onClickK(itemDetail: RedditDomain) {
         mainViewModel.onClickDetail(itemDetail)
         this.findNavController().navigate(R.id.action_mainFragment_to_fragmentPicture)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+      //  mainViewModel.flow.lastOrNull()?.
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
     }
 }

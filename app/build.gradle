@@ -71,4 +71,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
 
     implementation 'gun0912.ted:tedpermission:2.2.2'
+
+    // Paging
+
+    implementation("androidx.paging:paging-runtime:3.0.1")
+
+    // alternatively - without Android dependencies for tests
+    testImplementation("androidx.paging:paging-common:3.0.1")
 }

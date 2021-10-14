@@ -22,15 +22,14 @@ fun TextView.setAuthorName(r: RedditDomain?) {
 fun TextView.setHowMuchComments(r: RedditDomain?) {
     r?.let {
         when (it.commentCount) {
-            null -> "Комментариев пока нет"
-            0 -> "Комментариев пока нет"
+            null -> text ="Комментариев пока нет"
+            0 -> text ="Комментариев пока нет"
             1 -> text = r.commentCount.toString() + " комментарий."
             else -> text = r.commentCount.toString() + " комментариев."
         }
-        text = r.commentCount.toString() + "комментариев."
+      //  text = r.commentCount.toString() + "комментариев."
     }
 }
-
 
 @BindingAdapter("setImage")
 fun bindImage(imgView: ImageView, r: RedditDomain?) {
@@ -52,8 +51,6 @@ fun bindImageDetail(imgView: ImageView, r: RedditDomain?) {
             .into(imgView)
     }
 }
-
-
 @SuppressLint("SetTextI18n")
 @BindingAdapter("howMuchTimePassed")
 fun TextView.setHowMuchTimePassed(r: RedditDomain?) {

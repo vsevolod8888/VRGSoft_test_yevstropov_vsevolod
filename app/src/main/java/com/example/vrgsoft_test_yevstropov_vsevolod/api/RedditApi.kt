@@ -6,6 +6,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private val logging = HttpLoggingInterceptor().apply { setLevel(HttpLoggingInterceptor.Level.BODY) }
 private val httpClientBuilder = OkHttpClient.Builder().apply { addInterceptor(logging) }
@@ -22,7 +23,9 @@ var retrofit = Retrofit.Builder()
 interface RedditApiService {
 
     @GET("/top.json") //
-    suspend fun getListRedditApiDto(): Response<RedditApiDto>
+    suspend fun getListRedditApiDto(@Query("limit") loadSize: Int = 30,
+                                    @Query("after") after: String? = null,
+                                    @Query("before") before: String? = null): Response<RedditApiDto>
 
 }
 

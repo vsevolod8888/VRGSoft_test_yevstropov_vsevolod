@@ -12,6 +12,9 @@ import javax.inject.Inject
 
 class Repozitory @Inject constructor(val ourApiService:RedditApiService){
     var listRedditdomainREP: MutableLiveData<List<RedditDomain>> = MutableLiveData()
+    companion object {
+        const val NETWORK_PAGE_SIZE = 20
+    }
 
     suspend fun refreshDataFromInternet(){
         withContext(Dispatchers.IO) {
